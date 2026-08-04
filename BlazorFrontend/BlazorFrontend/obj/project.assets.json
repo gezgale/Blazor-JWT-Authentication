@@ -2657,11 +2657,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\BlazorBackFrontGit\\BlazorFrontend\\BlazorFrontend\\BlazorFrontend.csproj",
+      "projectUniqueName": "D:\\Programming\\BlazorBackFrontGit\\BlazorFrontend\\BlazorFrontend\\BlazorFrontend.csproj",
       "projectName": "BlazorFrontend",
-      "projectPath": "D:\\BlazorBackFrontGit\\BlazorFrontend\\BlazorFrontend\\BlazorFrontend.csproj",
+      "projectPath": "D:\\Programming\\BlazorBackFrontGit\\BlazorFrontend\\BlazorFrontend\\BlazorFrontend.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "D:\\BlazorBackFrontGit\\BlazorFrontend\\BlazorFrontend\\obj\\",
+      "outputPath": "D:\\Programming\\BlazorBackFrontGit\\BlazorFrontend\\BlazorFrontend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2682,8 +2682,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "D:\\BlazorBackFrontGit\\BlazorFrontend\\BlazoredToast\\src\\Blazored.Toast\\Blazored.Toast.csproj": {
-              "projectPath": "D:\\BlazorBackFrontGit\\BlazorFrontend\\BlazoredToast\\src\\Blazored.Toast\\Blazored.Toast.csproj"
+            "D:\\Programming\\BlazorBackFrontGit\\BlazorFrontend\\BlazoredToast\\src\\Blazored.Toast\\Blazored.Toast.csproj": {
+              "projectPath": "D:\\Programming\\BlazorBackFrontGit\\BlazorFrontend\\BlazoredToast\\src\\Blazored.Toast\\Blazored.Toast.csproj"
             }
           }
         }
