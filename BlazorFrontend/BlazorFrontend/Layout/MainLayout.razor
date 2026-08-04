@@ -1,0 +1,41 @@
+﻿@inherits LayoutComponentBase
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4 auth">
+            <LoginDisplay />
+            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+    <BlazoredToasts />
+</div>
+
+@* 
+https://github.com/Blazored/Toast
+IconType (Default: IconType.Blazored)
+InfoClass
+InfoIcon
+SuccessClass
+SuccessIcon
+WarningClass
+WarningIcon
+ErrorClass
+ErrorIcon
+Position (Default: ToastPosition.TopRight)
+Timeout (Default: 5)
+MaxToastCount (Default: int.MaxValue)
+RemoveToastsOnNavigation
+ShowProgressBar
+CloseButtonContent (provide custom close button)
+ShowCloseButton (Default: true)
+DisableTimeout
+PauseProgressOnHover (Default: false)
+ExtendedTimeout 
+*@

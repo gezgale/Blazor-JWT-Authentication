@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36109.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFrontend", "BlazorFrontend\BlazorFrontend.csproj", "{3B59932C-CD80-4460-81F7-5B014EAD573F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazored.Toast", "BlazoredToast\src\Blazored.Toast\Blazored.Toast.csproj", "{348BB480-C206-FD9E-AE77-DDEC6A318DB0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B59932C-CD80-4460-81F7-5B014EAD573F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B59932C-CD80-4460-81F7-5B014EAD573F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B59932C-CD80-4460-81F7-5B014EAD573F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B59932C-CD80-4460-81F7-5B014EAD573F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{348BB480-C206-FD9E-AE77-DDEC6A318DB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{348BB480-C206-FD9E-AE77-DDEC6A318DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{348BB480-C206-FD9E-AE77-DDEC6A318DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{348BB480-C206-FD9E-AE77-DDEC6A318DB0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3E6E81A-11DA-4B64-9EE8-A0D9B5607531}
+	EndGlobalSection
+EndGlobal

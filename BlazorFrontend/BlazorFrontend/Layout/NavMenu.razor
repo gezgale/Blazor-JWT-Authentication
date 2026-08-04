@@ -1,0 +1,152 @@
+﻿<style>
+    .nav-link {
+        cursor: pointer;
+    }
+
+    .ms-3 {
+        margin-right: 20px !important;
+    }
+
+    .ms-4 {
+        margin-right: 40px !important;
+    }
+</style>
+
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand BTitrBold" href="">سیستم جامع تولید</a>
+        <button title="Navigation menu"
+                class="navbar-toggler"
+                @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+<div class="@NavMenuCssClass nav-scrollable">
+    <nav class="nav flex-column">
+
+        <!-- Home -->
+        <div class="nav-item px-3">
+            <NavLink class="nav-link"
+                     href=""
+                     Match="NavLinkMatch.All">
+                🏠 Home
+            </NavLink>
+        </div>
+
+        <!-- Level 1 -->
+        <div class="nav-item px-3">
+
+            <a href="javascript:void(0)"
+               class="nav-link"
+               @onclick="ToggleManagement">
+
+                @(managementExpanded ? "▼" : "◄")
+                Management
+            </a>
+
+            @if (managementExpanded)
+            {
+                <!-- Level 2 -->
+                <div class="ms-3">
+
+                    <a href="javascript:void(0)"
+                       class="nav-link"
+                       @onclick="ToggleUsers">
+
+                        @(usersExpanded ? "▼" : "◄")
+                        Users
+                    </a>
+
+                    @if (usersExpanded)
+                    {
+                        <!-- Level 3 -->
+                        <div class="ms-4">
+
+                            <NavLink class="nav-link"
+                                     href="users/list">
+                                User List
+                            </NavLink>
+
+                            <NavLink class="nav-link"
+                                     href="users/create">
+                                Create User
+                            </NavLink>
+
+                            <NavLink class="nav-link"
+                                     href="users/roles">
+                                User Roles
+                            </NavLink>
+
+                        </div>
+                    }
+
+                    <a href="javascript:void(0)"
+                       class="nav-link"
+                       @onclick="ToggleProducts">
+
+                        @(productsExpanded ? "▼" : "◄")
+                        Products
+                    </a>
+
+                    @if (productsExpanded)
+                    {
+                        <!-- Level 3 -->
+                        <div class="ms-4">
+
+                            <NavLink class="nav-link"
+                                     href="products/list">
+                                Product List
+                            </NavLink>
+
+                            <NavLink class="nav-link"
+                                     href="products/create">
+                                Create Product
+                            </NavLink>
+
+                        </div>
+                    }
+
+                </div>
+            }
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="weather">
+                Weather
+            </NavLink>
+        </div>
+
+    </nav>
+</div>
+
+@code {
+
+    private bool collapseNavMenu = true;
+
+    private bool managementExpanded;
+    private bool usersExpanded;
+    private bool productsExpanded;
+
+    private string? NavMenuCssClass =>
+        collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    private void ToggleManagement()
+    {
+        managementExpanded = !managementExpanded;
+    }
+
+    private void ToggleUsers()
+    {
+        usersExpanded = !usersExpanded;
+    }
+
+    private void ToggleProducts()
+    {
+        productsExpanded = !productsExpanded;
+    }
+}

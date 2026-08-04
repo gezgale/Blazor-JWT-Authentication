@@ -1,0 +1,55 @@
+﻿@page "/login"
+@using BlazorFrontend.Helpers
+@inject BlazorFrontend.Services.AuthService AuthService
+@inject NavigationManager Navigation
+@inject IToastService ToastService
+
+<h3 class="FontMan11">ورود به سیستم</h3>
+
+<EditForm Model="model" OnValidSubmit="LoginUser">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="mb-3">
+        <label class="FontMan11">
+            @(DisplayName.GetDisplayName<BlazorFrontend.Models.Entities.LoginRequest>(nameof(model.Email)))
+        </label>
+        <InputText class="form-control" @bind-Value="model.Email" />
+    </div>
+    <div class="mb-3">
+        <label class="FontMan11">@(DisplayName.GetDisplayName<BlazorFrontend.Models.Entities.LoginRequest>(nameof(model.Password)))</label>
+        <InputText type="password" class="form-control" @bind-Value="model.Password" />
+    </div>
+    <button class="btn btn-primary FontMan12">ورود به سیستم</button>
+</EditForm>
+
+@code 
+{
+    private BlazorFrontend.Models.Entities.LoginRequest model = new();
+    private async Task LoginUser()
+    {
+        try
+        {
+            var result = await AuthService.LoginAsync(model);
+            if (result?.Token is not null)
+            {
+                Navigation.NavigateTo("/");
+            }
+            else
+            {
+                ToastService.ShowError(result!.Message, settings => { settings.IconType = IconType.None; settings.Timeout = 5; settings.ShowProgressBar = true; settings.Position = ToastPosition.MiddleCenter; });
+            }
+        }
+        catch (HttpRequestException)
+        {
+            ToastService.ShowError($"{"ارتباط با سرویس دهنده برقرار نشد."}", settings => { settings.IconType = IconType.None; settings.Timeout = 5; settings.ShowProgressBar = true; settings.Position = ToastPosition.MiddleCenter; });
+        }
+        catch (TaskCanceledException)
+        {
+            ToastService.ShowError("زمان انتظار پاسخگویی از سمت سرویس دهنده به پایان رسیده و پاسخی دریافت نشد.", settings => { settings.IconType = IconType.None; settings.Timeout = 5; settings.ShowProgressBar = true; settings.Position = ToastPosition.MiddleCenter; });
+        }
+        catch (Exception ex)
+        {
+            ToastService.ShowError("خطایی در زمان درخواست ورود به سیستم رخ داده است." + ex.Message, settings => { settings.IconType = IconType.None; settings.Timeout = 5; settings.ShowProgressBar = true; settings.Position = ToastPosition.MiddleCenter; });
+        }
+    }
+}

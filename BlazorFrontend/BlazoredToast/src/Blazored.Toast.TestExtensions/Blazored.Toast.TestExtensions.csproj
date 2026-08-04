@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		
+		<Authors>Chris Sainty</Authors>
+		<Company></Company>
+		<Copyright>Copyright 2020 (c) Chris Sainty. All rights reserved.</Copyright>
+
+		<Description>A testing library to provide helper extensions for Blazored.Toast</Description>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+		<!-- NuGet settings -->
+		<PackageId>Blazored.Toast.TestExtensions</PackageId>
+		<PackageTags>Blazored;Blazor;Razor;Components;Toast;Popup;Notification;ASP.NET Core;CSharp;Web</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/Blazored/Toast</PackageProjectUrl>
+		<PackageIcon>icon.png</PackageIcon>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/Blazored/Toast</RepositoryUrl>
+
+		<!-- SourceLink settings -->
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<SignAssembly>true</SignAssembly>
+		<AssemblyOriginatorKeyFile>Blazored.Toast.snk</AssemblyOriginatorKeyFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\Blazored.Toast\icon.png" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="bunit" Version="1.26.64" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Blazored.Toast\Blazored.Toast.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,30 @@
+﻿@page "/users/edit/{Id}"
+@using Blazored.Toast.Configuration
+@inject Blazored.Toast.Services.IToastService ToastService
+
+<h3>Edit User</h3>
+
+<p>User Id: @Id</p>
+
+<button class="btn btn-primary" @onclick="ShowError">
+    Save
+</button>
+
+@code
+{
+    [Parameter]
+    public string? Id { get; set; }
+
+    private void ShowError()
+    {
+        ToastService.ShowInfo(
+            "ثبت انجام شد.",
+            settings =>
+            {
+                settings.IconType = IconType.None;
+                settings.Timeout = 5;
+                settings.ShowProgressBar = true;
+                settings.Position = ToastPosition.MiddleCenter;
+            });
+    }
+}

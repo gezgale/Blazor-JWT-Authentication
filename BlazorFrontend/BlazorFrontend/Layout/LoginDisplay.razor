@@ -1,0 +1,26 @@
+﻿@using BlazorFrontend.Auth
+@using BlazorFrontend.Services
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@inject NavigationManager _navigationManager
+@inject AuthService AuthService
+@inject CustomAuthStateProvider _authStateProvider
+
+
+<AuthorizeView>
+    <Authorized>
+        Hello, @context.User.Identity?.Name!
+        <button class="nav-link btn btn-link" @onclick="BeginLogOut">Log out</button>
+    </Authorized>
+    <NotAuthorized>
+        <a href="/login">Log in</a>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code{
+    public async void BeginLogOut()
+    {
+        await AuthService.LogoutAsync();
+        _authStateProvider.NotifyUserLogout();
+        _navigationManager.NavigateTo("/login", true);
+    }
+}

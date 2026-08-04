@@ -1,0 +1,18 @@
+@page "/users"
+@inject BlazorFrontend.Services.UserManagementService UserService
+@inject Blazored.Toast.Services.IToastService ToastService
+<h3>Users</h3>
+@if (users != null)
+{
+    <table class="table">
+        <tr><th>Name</th><th>Email</th><th></th></tr>
+        @foreach (var u in users)
+        {
+            <tr><td>@u.FullName</td><td>@u.Email</td><td><a href="/users/edit/@u.Id">Edit</a></td></tr>
+        }
+    </table>
+}
+@code {
+    List<BlazorFrontend.Models.Dtos.UserManagementDto>? users;
+    protected override async Task OnInitializedAsync() { users = await UserService.GetUsersAsync(); ToastService.ShowSuccess("Users loaded"); }
+}
